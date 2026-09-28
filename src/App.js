@@ -16,6 +16,12 @@ import {
 
 import "./App.css";
 
+// API URL
+// Local: http://localhost:5001
+// Deployment: set REACT_APP_API_URL in the hosting environment
+const API_URL =
+  process.env.REACT_APP_API_URL || "http://localhost:5001";
+
 function App() {
   // =========================
   // MAIN STATES
@@ -44,7 +50,7 @@ function App() {
 
     try {
       const response = await axios.get(
-        "http://localhost:5001/api/items"
+        `${API_URL}/api/items`
       );
 
       setScores(response.data);
@@ -85,7 +91,7 @@ function App() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5001/api/users/login",
+        `${API_URL}/api/users/login`,
         {
           username: username,
           password: password,
