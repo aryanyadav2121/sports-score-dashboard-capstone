@@ -1,5 +1,5 @@
 const express = require("express");
-const Item = require("../models/Item");
+const Item = require("../models/item");
 
 const router = express.Router();
 
@@ -28,5 +28,3 @@ router.post("/", async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 });
-
-module.exports = router;
